@@ -23,10 +23,14 @@ public class Bullet : MonoBehaviour
         Vector2 direction = (target.position - transform.position).normalized;
 
         rb.velocity = direction * bulletSpeed;
+
     }
 
     private void OnCollisionEnter2D(Collision2D other){
         other.gameObject.GetComponent<Health>().TakeDamage(bulletDmg);
         Destroy(gameObject);
     }
+    private void OnBecameInvisible() {
+    Destroy(gameObject);
+}
 }
