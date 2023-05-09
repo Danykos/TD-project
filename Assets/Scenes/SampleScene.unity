@@ -801,9 +801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Test Turret
-
-'
+  m_text: Slowmo Tower
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4162,7 +4160,7 @@ MonoBehaviour:
   - {fileID: 1235253101}
   - {fileID: 524851619}
   - {fileID: 1645150460}
-  currency: 100
+  currency: 200
 --- !u!114 &871884110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4179,9 +4177,9 @@ MonoBehaviour:
   - name: Basic Turret
     cost: 100
     prefab: {fileID: 5766369070592063448, guid: 97c63655ea160db48a765c05008538a5, type: 3}
-  - name: Test Turret
-    cost: 150
-    prefab: {fileID: 5766369070592063448, guid: 4b99fe3bcd1af8343a47776d75391e2d, type: 3}
+  - name: Slowmo Tower
+    cost: 200
+    prefab: {fileID: 6042190483777538204, guid: 66e5ef98afaecce418c87cdfc8b392b4, type: 3}
 --- !u!1001 &887979873
 PrefabInstance:
   m_ObjectHideFlags: 0
