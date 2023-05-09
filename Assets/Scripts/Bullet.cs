@@ -27,8 +27,9 @@ public class Bullet : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other){
+        if(other.transform == target){
         other.gameObject.GetComponent<Health>().TakeDamage(bulletDmg);
-        Destroy(gameObject);
+        Destroy(gameObject);}
     }
     private void OnBecameInvisible() {
     Destroy(gameObject);
