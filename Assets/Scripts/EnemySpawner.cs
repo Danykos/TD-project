@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
    [Header("References")]
    [SerializeField] private GameObject[] enemyPrefabs;
+   [SerializeField] private TextMeshProUGUI hpText;
 
    [Header("Attributes")]
    [SerializeField] private int baseEnemies = 8;
@@ -14,6 +16,8 @@ public class EnemySpawner : MonoBehaviour
    [SerializeField] private float timeBetweenWaves = 5f;
    [SerializeField] private float dificultyScalingFactor = 0.75f;
    [SerializeField] private float enemiesPerSecondCap = 15f;
+   [SerializeField] private int Health = 20;
+
 
    [Header("Events")]
    public static UnityEvent onEnemyDestroy = new UnityEvent();
@@ -31,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
 
    private void Start(){
         StartCoroutine(StartWave());
+        hpText.text = Health.ToString();
    }
     
     private void Update(){
@@ -53,6 +58,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void EnemyDestroyed(){
         enemiesAlive--;
+        Health--;
+        hpText.text = Health.ToString();
       
     }
 
