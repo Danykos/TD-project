@@ -100,7 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 8999488299138697154}
   hoverColor: {r: 1, g: 1, b: 1, a: 0.49803922}
-  cost: 50
+  newRangeObj: {fileID: 5362072881765118754, guid: cfa6a9cbf030861489f85dca4ef7eeb5, type: 3}
+  towerObj: {fileID: 0}
+  turret: {fileID: 0}
 --- !u!61 &-5758070659990800583
 BoxCollider2D:
   m_ObjectHideFlags: 0
