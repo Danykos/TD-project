@@ -41,6 +41,13 @@ public class Plots : MonoBehaviour
         LevelManager.main.SpendCurrency(towerToBuild.cost);
         towerObj = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
         turret = towerObj.GetComponent<Turret>();
+        Collider2D collider = gameObject.GetComponent<Collider2D>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
+
+
     }
 
 }
