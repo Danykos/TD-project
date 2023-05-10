@@ -100,6 +100,12 @@ public class TurretSlomo : MonoBehaviour
         aps = CalculateBPS();
 
         targetInRange = CalculateRange();
+
+        Color newColor = GetComponent<Renderer>().material.color;
+        newColor.r -= 0.2f;
+        newColor.g -= 0.2f;
+        newColor.b -= 0.2f;
+        GetComponent<Renderer>().material.color = newColor;
         
         
         Debug.Log("New BPS: " + aps + "New Cost: " + CalculateCost() + "New range: " + targetInRange + "Current lvl: " + level);

@@ -120,6 +120,15 @@ public class Turret : MonoBehaviour
         bps = CalculateBPS();
 
         targetInRange = CalculateRange();
+
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+    foreach(Renderer renderer in renderers){
+        Color newColor = renderer.material.color;
+        newColor.r -= 0.2f;
+        newColor.g -= 0.2f;
+        newColor.b -= 0.2f;
+        renderer.material.color = newColor;
+    }
         
         
         Debug.Log("New BPS: " + bps + "New Cost: " + CalculateCost() + "New range: " + targetInRange + "Current lvl: " + level);

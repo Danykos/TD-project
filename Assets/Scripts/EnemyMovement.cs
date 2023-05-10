@@ -35,10 +35,17 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    private void FixedUpdate(){
-        Vector2 direction = (target.position - transform.position).normalized;
-        rb.velocity = direction * moveSpeed;
-    }
+          private void FixedUpdate() {
+    Vector2 direction = (target.position - transform.position).normalized;
+    rb.velocity = direction * moveSpeed;
+    float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    float rotationSpeed = 180f;
+    Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, targetAngle));
+    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+}
+
+
+
 
     public void UpdateSpeed(float newSpeed){
         moveSpeed = newSpeed;
