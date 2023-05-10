@@ -37,6 +37,11 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(StartWave());
         hpText.text = Health.ToString();
    }
+   public void HP(){
+        Health-=1;
+        Debug.Log(Health);
+        hpText.text = Health.ToString();
+   }
     
     private void Update(){
         if(!isSpawning)return;
@@ -58,9 +63,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void EnemyDestroyed(){
         enemiesAlive--;
-        Health--;
-        hpText.text = Health.ToString();
-      
     }
 
 
