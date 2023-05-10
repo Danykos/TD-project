@@ -142,4 +142,8 @@ public class Turret : MonoBehaviour
      private float CalculateRange(){
         return targetingRangeBase * Mathf.Pow(level,0.4f);
     }
+     private void OnMouseDown(){
+         if(UIManager.main.IsHoveringUI())return;
+         OpenUpgradeUI();
+        }
 }

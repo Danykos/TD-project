@@ -454,6 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5766369070592063449}
   - component: {fileID: 5766369070592063450}
+  - component: {fileID: 4430453660414012089}
   m_Layer: 6
   m_Name: Turret
   m_TagString: Untagged
@@ -508,6 +509,22 @@ MonoBehaviour:
   bps: 1
   baseUpgradeCost: 200
   maxLvl: 5
+--- !u!58 &4430453660414012089
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766369070592063448}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &5766369070931454441
 GameObject:
   m_ObjectHideFlags: 0

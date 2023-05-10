@@ -27,10 +27,8 @@ public class Plots : MonoBehaviour
         sr.color = startColor;
     }
     private void OnMouseDown(){
-        if(UIManager.main.IsHoveringUI())return;
         
-        if(towerObj != null) {
-            turret.OpenUpgradeUI();            
+        if(towerObj != null) {              
             return;
         }
         
