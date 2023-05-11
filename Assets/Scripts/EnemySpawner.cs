@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
    [Header("References")]
    [SerializeField] private GameObject[] enemyPrefabs;
    [SerializeField] private TextMeshProUGUI hpText;
+   [SerializeField] private GameObject endMenu;
 
    [Header("Attributes")]
    [SerializeField] private int baseEnemies = 8;
@@ -29,6 +31,14 @@ public class EnemySpawner : MonoBehaviour
    private bool isSpawning = false;
    private float eps;
 
+   public void OnRestartButtonClicked()
+    {
+        Time.timeScale = 1;
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        
+        SceneManager.LoadScene(currentSceneName);
+    }
+
    private void Awake(){
     onEnemyDestroy.AddListener(EnemyDestroyed);
    }
@@ -41,6 +51,23 @@ public class EnemySpawner : MonoBehaviour
         Health-=1;
         Debug.Log(Health);
         hpText.text = Health.ToString();
+        if(Health == 0){
+            endMenu.SetActive(true);
+            Time.timeScale = 0;
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            GameObject[] allObjects = FindObjectsOfType<GameObject>();
+            foreach (GameObject obj in allObjects)
+            {
+                
+                Collider2D collider = obj.GetComponent<Collider2D>();
+                if (collider != null)
+                {
+                    collider.enabled = false;
+                }
+            }
+
+        }
+
    }
     
     private void Update(){
