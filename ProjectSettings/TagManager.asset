@@ -44,6 +44,9 @@ TagManager:
   - name: Turet
     uniqueID: 155727141
     locked: 0
-  - name: UI
+  - name: Enemy
     uniqueID: 2639678621
+    locked: 0
+  - name: UI
+    uniqueID: 2521111219
     locked: 0

@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UI;
 
 public class TurretSlomo : MonoBehaviour
 {
@@ -23,7 +23,7 @@ public class TurretSlomo : MonoBehaviour
     [SerializeField] private int maxLvl = 5;
 
     private float timeUntilFire;
-       private float bpsBase;
+    private float bpsBase;
     private float targetingRangeBase;
     
     private int level = 1;
@@ -67,12 +67,7 @@ public class TurretSlomo : MonoBehaviour
         em.ResetSpeed();
     }
 
-    private void OnDrawGizmosSelected(){
-
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetInRange);
-
-    }
+    
     private void OnMouseDown(){
          if(UIManager.main.IsHoveringUI())return;
          OpenUpgradeUI();

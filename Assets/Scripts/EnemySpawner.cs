@@ -10,7 +10,9 @@ public class EnemySpawner : MonoBehaviour
    [Header("References")]
    [SerializeField] private GameObject[] enemyPrefabs;
    [SerializeField] private TextMeshProUGUI hpText;
+   [SerializeField] private TextMeshProUGUI WaveText;
    [SerializeField] private GameObject endMenu;
+   [SerializeField] private GameObject WonMenu;
 
    [Header("Attributes")]
    [SerializeField] private int baseEnemies = 8;
@@ -19,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
    [SerializeField] private float dificultyScalingFactor = 0.75f;
    [SerializeField] private float enemiesPerSecondCap = 15f;
    [SerializeField] private int Health = 20;
+   [SerializeField] private int MaxWave = 10;
 
 
    [Header("Events")]
@@ -71,6 +74,7 @@ public class EnemySpawner : MonoBehaviour
    }
     
     private void Update(){
+                WaveText.text = "Current wave: " + currentWave;
         if(!isSpawning)return;
 
         timeSinceLastSpawn += Time.deltaTime;
@@ -103,7 +107,24 @@ public class EnemySpawner : MonoBehaviour
    private void EndWave(){
         isSpawning = false;
         timeSinceLastSpawn = 0f;
+        
+        if(currentWave==MaxWave) {
+            WonMenu.SetActive(true);
+            Time.timeScale = 0;
+            GameObject[] allObjects = FindObjectsOfType<GameObject>();
+            foreach (GameObject obj in allObjects)
+            {
+                
+                Collider2D collider = obj.GetComponent<Collider2D>();
+                if (collider != null)
+                {
+                    collider.enabled = false;
+                }
+            }
+            return;
+        }
         currentWave++;
+
         StartCoroutine(StartWave());
 
    }
