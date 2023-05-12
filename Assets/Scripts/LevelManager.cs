@@ -7,11 +7,12 @@ public class LevelManager : MonoBehaviour
    public static LevelManager main;
    public Transform startPoint;
    public Transform[] path;
+   public int startCurrency = 100;
    
    public int currency;
 
    public void Start(){
-      currency = 100;
+      currency = startCurrency;
    }
 
    private void Awake(){
